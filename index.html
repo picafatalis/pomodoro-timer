@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pomodoro timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="modes">
+        <input type="radio" id="pomodoro" name="mode" checked/>
+        <label for="pomodoro">Pomodoro</label>
+        
+        <input type="radio" id="short" name="mode" />
+        <label for="short">Short</label>
+        
+        <input type="radio" id="long" name="mode" />
+        <label for="long">Long</label>
+    </div>
+    <h1 id="time">00:00</h1>
+    <audio src="sounds/finish.mp3" id="finish-sound"></audio>
+    <div class="cycles">
+        <h3 id="cycle-count"></h3>
+        <div class="hearts">
+            <img src="img/heart-outlined.png" alt="" class="heart">
+            <img src="img/heart-outlined.png" alt="" class="heart">
+            <img src="img/heart-outlined.png" alt="" class="heart">
+            <img src="img/heart-outlined.png" alt="" class="heart">
+        </div>
+    </div>
+    <button id="start">Start</button>
+    <audio src="sounds/click.mp3" id="click-sound"></audio>
+    <button id="pause" style="display: none;">Pause</button>
+</body>
+<script src="js/timer.js"></script>
+</html>
