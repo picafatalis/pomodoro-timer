@@ -43,8 +43,8 @@ function newShort(){
     newTimer();
     shortBtn.checked = true;
     mode = 1;
-    minutes = 0;
-    seconds = 2;
+    minutes = 1;
+    seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
 }
 
