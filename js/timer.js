@@ -34,8 +34,8 @@ function newPomodoro(){
     newTimer();
     pomodoroBtn.checked = true;
     mode = 0;
-    minutes = 0;
-    seconds = 1;
+    minutes = 25;
+    seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
 }
 
@@ -43,7 +43,7 @@ function newShort(){
     newTimer();
     shortBtn.checked = true;
     mode = 1;
-    minutes = 1;
+    minutes = 5;
     seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
 }
@@ -52,8 +52,8 @@ function newLong() {
     newTimer();
     longBtn.checked = true;
     mode = 2;
-    minutes = 0;
-    seconds = 3;
+    minutes = 15;
+    seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
 }
 
