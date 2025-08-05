@@ -1,3 +1,4 @@
+const titleEl = document.getElementById('title');
 const timeEl = document.getElementById('time');
 const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
@@ -37,6 +38,7 @@ function newPomodoro(){
     minutes = 25;
     seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
+    titleEl.innerText = timeFormat(minutes,seconds);
 }
 
 function newShort(){
@@ -46,6 +48,7 @@ function newShort(){
     minutes = 5;
     seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
+    titleEl.innerText = timeFormat(minutes,seconds);
 }
 
 function newLong() {
@@ -55,6 +58,7 @@ function newLong() {
     minutes = 15;
     seconds = 0;
     timeEl.innerText = timeFormat(minutes,seconds);
+    titleEl.innerText = timeFormat(minutes,seconds);
 }
 
 function newTimer(){
@@ -73,8 +77,11 @@ longBtn.addEventListener('click', playClick)
 
 let timer;
 
-startBtn.addEventListener('click', ()=>{
-    
+startBtn.addEventListener('click', start);
+
+
+function startTimer() {
+        
     clearInterval(timer);
     pause = false;
 
@@ -143,10 +150,14 @@ startBtn.addEventListener('click', ()=>{
 
         }
         timeEl.innerText = timeFormat(minutes,seconds);
+        titleEl.innerText = timeFormat(minutes,seconds);
+        
     }, 1000);
-})
+}
 
-pauseBtn.addEventListener('click', ()=>{
+pauseBtn.addEventListener('click', pauseTimer())
+
+function pauseTimer(){
     clearInterval(timer);
     
     pause = true;
@@ -154,7 +165,17 @@ pauseBtn.addEventListener('click', ()=>{
     startBtn.style.display = 'block';
     pauseBtn.style.display = 'none';
     playClick();
-})
+}
+
+document.addEventListener('keypress', (e)=>{
+    if(e.key == 'Enter'){
+        startTimer();
+    }
+    if(e.code == 'Space'){
+        pauseTimer();
+    }
+});
+
 
 
 function timeFormat(minutes, seconds){
